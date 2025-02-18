@@ -6,11 +6,7 @@ from PIL import Image
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 
 # Load model YOLOv5
-@st.cache_resource
-def load_model():
-    return torch.hub.load("ultralytics/yolov5", "custom", path="best.pt", force_reload=True)
-
-model = load_model()
+model = torch.hub.load("ultralytics/yolov5", "custom", path="best.pt", force_reload=True)
 
 # Fungsi untuk mendeteksi objek dalam gambar
 def detect_objects(img):
